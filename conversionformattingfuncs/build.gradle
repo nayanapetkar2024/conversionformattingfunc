@@ -3,6 +3,9 @@ plugins {
     id 'maven-publish'
 }
 
+group = 'com.github.nayanapetkar2024'
+
+
 android {
     namespace 'com.utils.conversionformattingfuncs'
     compileSdk 33
