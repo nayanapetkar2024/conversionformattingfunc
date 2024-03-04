@@ -8,11 +8,10 @@ group = 'com.github.nayanapetkar2024'
 
 android {
     namespace 'com.utils.conversionformattingfuncs'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 24
-        //noinspection OldTargetApi
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -54,7 +53,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.nayanapetkar2024'
             artifactId = 'conversionformattingfunc'
-            version = '2.11'
+            version = '2.12'
 
             afterEvaluate {
                 from components.findByName('release')
