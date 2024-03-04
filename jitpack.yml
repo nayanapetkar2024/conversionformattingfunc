@@ -1,8 +1,4 @@
 jdk:
   - openjdk17
-install:
-  - FILE="-Dfile=conversionformattingfunc-release.aar"
-  - mvn install:install-file -Dfile=~/Source/ConversionLibrary05Mar2024/conversionformattingfunc/build/outputs/aar/conversionformattingfunc-release.aar -DgroupId=com.github.nayanapetkar2024 -DartifactId=conversionformattingfunc-Dversion=2.10 -Dpackaging=aar -DgeneratePom=false
-
-#before_install:
-#  - ./scripts/prepareJitpackEnvironment.sh
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
