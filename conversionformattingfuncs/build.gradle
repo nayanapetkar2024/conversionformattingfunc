@@ -40,9 +40,9 @@ afterEvaluate {
         publications{
             release(MavenPublication){
                 from components.findByName('release')
-                groupId = 'io.github.nayanapetkar2024'
+                groupId = 'com.github.nayanapetkar2024'
                 artifactId = 'conversionformattingfunc'
-                version = '1.0'
+                version = '1.8'
             }
         }
     }
