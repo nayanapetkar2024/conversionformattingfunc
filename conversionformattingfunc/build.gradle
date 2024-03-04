@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.nayanapetkar2024'
-
+version = '2.14'
 
 android {
     namespace 'com.utils.conversionformattingfuncs'
@@ -13,7 +13,8 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 33
-
+        versionCode 1
+        versionName "1.0"
        /* testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"*/
     }
@@ -48,12 +49,27 @@ dependencies {
     }
 }*/
 
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.findByName('release')
+                groupId = 'com.github.nayanapetkar2024'
+                artifactId = 'conversionformattingfunc'
+                version = '2.14'
+            }
+        }
+    }
+}
+
+/*
 publishing {
     publications {
         release(MavenPublication) {
             groupId = 'com.github.nayanapetkar2024'
             artifactId = 'conversionformattingfunc'
-            version = '2.13'
+            version = '2.14'
 
             afterEvaluate {
                 from components.findByName('release')
@@ -61,3 +77,4 @@ publishing {
         }
     }
 }
+*/
