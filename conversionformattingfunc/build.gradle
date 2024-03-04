@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.nayanapetkar2024'
-version = '2.15'
+//group = 'com.github.nayanapetkar2024'
+//version = '2.16'
 
 android {
     namespace 'com.utils.conversionformattingfuncs'
@@ -14,8 +14,7 @@ android {
         minSdk 24
         //noinspection OldTargetApi
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+
        /* testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"*/
     }
@@ -26,15 +25,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    publishing {
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+                withJavadocJar()
+            }
+        }
+    }
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
 }
 
 /*afterEvaluate {
@@ -50,15 +59,16 @@ dependencies {
     }
 }*/
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.findByName('release')
-                groupId = 'com.github.nayanapetkar2024'
-                artifactId = 'conversionformattingfunc'
-                version = '2.15'
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.nayanapetkar2024'
+            artifactId = 'conversionformattingfunc'
+            version = '2.16'
+
+            afterEvaluate {
+                from components.release
             }
         }
     }
