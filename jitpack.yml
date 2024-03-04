@@ -1,4 +1,7 @@
 jdk:
   - openjdk17
+install:
+  - FILE="-Dfile=conversionformattingfunc-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.nayanapetkar2024 -DartifactId=test -Dversion=2.8 -Dpackaging=aar -DgeneratePom=true
 #before_install:
 #  - ./scripts/prepareJitpackEnvironment.sh
