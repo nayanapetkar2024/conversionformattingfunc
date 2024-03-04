@@ -35,7 +35,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-afterEvaluate {
+/*afterEvaluate {
     publishing{
         publications{
             release(MavenPublication){
@@ -43,6 +43,20 @@ afterEvaluate {
                 groupId = 'com.github.nayanapetkar2024'
                 artifactId = 'conversionformattingfunc'
                 version = '1.8'
+            }
+        }
+    }
+}*/
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.nayanapetkar2024'
+            artifactId = 'conversionformattingfunc'
+            version = '1.9'
+
+            afterEvaluate {
+                from components.findByName('release')
             }
         }
     }
