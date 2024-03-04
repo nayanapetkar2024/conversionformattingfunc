@@ -53,7 +53,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.nayanapetkar2024'
             artifactId = 'conversionformattingfunc'
-            version = '2.5'
+            version = '2.6'
 
             afterEvaluate {
                 from components.findByName('release')
